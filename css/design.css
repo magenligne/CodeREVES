@@ -1,0 +1,275 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  /* min-height: 100vh; */
+  height: 100%;
+}
+
+.bloc {
+  min-height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Georgia, "verdana", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif, "Times New Roman", Times, serif;
+  background: linear-gradient(217deg, #b54993, rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(14, 18, 101, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+}
+
+.entete {
+  display: flex;
+  margin: 20px 0 40px 0;
+  width: 100%;
+  align-items: center;
+}
+
+.entete h1 {
+  font-size: 25px;
+  font-style: italic;
+}
+
+/******************************************************** burger de la passerelle */
+nav {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /*  */
+  border-radius: 3%;
+  margin: 5px;
+}
+
+#nav.open {
+  background-color: white;
+  width: 95%;
+  z-index: 5;
+}
+
+#link {
+  display: flex;
+  width: 70px;
+  flex-direction: column;
+}
+
+#burger {
+  width: 30px;
+  height: 2px;
+  background-color: purple;
+  display: inline-block;
+  position: relative;
+  margin: 20px;
+}
+
+/*Ce code permet d’indiquer que la barre centrale fera 30px de large sur 2px de hauteur.*/
+#burger::before,
+#burger::after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: purple;
+  display: inline-block;
+  position: absolute;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+/*On utilise ci dessous ses pseudo-éléments before et after pour créer les barres du haut et du bas.
+ Nous avons donc là notre burger fermé. 
+ Quand nous cliquerons dessus, ce dernier prendra une classe .open.*/
+#burger::before {
+  top: -7px;
+}
+
+#burger::after {
+  top: 7px;
+}
+
+#burger.open {
+  background: transparent; /* la barre du milieu disparait */
+}
+
+/* celles du haut et du bas s'inclinent pour former une croix :*/
+#burger.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+#burger.open::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/*******************************************************************************************/
+.titre {
+  margin-left: 100px;
+  width: 80%;
+  text-align: center;
+}
+
+#listeMenu {
+  display: none;
+}
+
+#listeMenu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: purple;
+  font-size: 20px;
+  padding: 2px;
+  font-style: italic;
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+#listeMenu li {
+  padding: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/* #listeMenu li:hover {
+} */
+#listeMenu a:hover {
+  color: white;
+  background: linear-gradient(#b54993, #928ffb);
+}
+
+#listeMenu.open {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
+  list-style: none;
+  border-radius: 5px;
+}
+
+#corps {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#corps a {
+  /* background: radial-gradient(white 45%, rgba(344, 175, 152, 0.3)); */
+  /* border-radius: 50%; */
+  height: 60%;
+}
+
+.porte {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+  padding: 50px;
+  width: 95%;
+  height: 90%;
+  padding: 5px;
+}
+
+.porte h1 {
+  font-size: 45px;
+  text-shadow: 2px 2px grey;
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: purple;
+  width: 100%;
+}
+
+.porte h1:hover {
+  color: #928ffb;
+}
+
+/* .porte_img:hover {
+  width: 41%;
+} */
+h2 {
+  color: purple;
+  font-style: italic;
+  text-align: center;
+  width: 80%;
+}
+
+.porte h1 {
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari et Chrome */
+  -o-animation: fadein 3s; /* Opera */
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.texte {
+  width: 85%;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  font-style: italic;
+}
+
+.texte p {
+  margin-bottom: 30px;
+}
+
+.texte li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #800080;
+  color: white;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+.footer_piedDePage ul {
+  padding: 0%;
+  margin: 10px 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  font-size: 9px;
+}
+
+.footer_piedDePage h3 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer_piedDePage a {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.footer_piedDePage a:hover {
+  color: #928ffb;
+}/*# sourceMappingURL=design.css.map */
